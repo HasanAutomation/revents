@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState,} from 'react';
 import { Segment, Header, Form, Button } from 'semantic-ui-react';
 import cuid from 'cuid';
+import { Link } from 'react-router-dom';
 
 const EventForm = ({
   setFormOpen,
@@ -28,9 +29,9 @@ const EventForm = ({
     });
   };
 
-  //   useEffect(()=>{
-  //       document.title='This is a form page'
-  //   })
+    // useEffect(()=>{
+    //     document.title='Create a new event'
+    // })
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -106,7 +107,7 @@ const EventForm = ({
         </Form.Field>
         <Button content="Submit" type="submit" positive floated="right" />
         <Button
-          onClick={() => setFormOpen(false)}
+         as={Link} to='/events'
           content="Cancel"
           type="submit"
           floated="right"
