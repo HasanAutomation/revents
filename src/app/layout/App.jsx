@@ -9,6 +9,8 @@ import EventForm from '../../features/events/eventForm/EventForm';
 import Sandbox from '../../features/sandbox/Sandbox';
 import { Helmet } from 'react-helmet';
 import ModalManager from '../common/modals/ModalManager';
+import { ToastContainer } from 'react-toastify';
+
 
 function App() {
 const {key} = useLocation();
@@ -22,6 +24,7 @@ const {key} = useLocation();
         path="/(.+)"
         render={() => (
           <>
+          <ToastContainer position='bottom-right' hideProgressBar/>
            <ModalManager/>
             <Navbar />
            

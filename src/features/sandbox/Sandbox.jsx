@@ -4,10 +4,13 @@ import { Button } from 'semantic-ui-react';
 import { increment, decrement } from './testReducer';
 import { Helmet } from 'react-helmet';
 import { openModal } from '../../app/common/modals/modalReducer';
+import { useState } from 'react';
 
 const Sandbox = () => {
+  const [target,setTarget]=useState(null);
   const dispatch = useDispatch();
   const data = useSelector((state) => state.test.data);
+  const {loading}=useSelector(state=>state.async);
   return (
     <>
       <Helmet>
@@ -17,13 +20,23 @@ const Sandbox = () => {
       <h4>The data is: {data}</h4>
       <Button
         color="green"
+        name='increment'
+        loading={loading && target==='increment'}
         content="Increment"
-        onClick={() => dispatch(increment(10))}
+        onClick={(e) =>{
+          dispatch(increment(10))
+          setTarget(e.target.name)
+        } }
       />
       <Button
         color="red"
+        name='decrement'
+        loading={loading && target==='decrement'}
         content="Decrement"
-        onClick={() => dispatch(decrement(10))}
+        onClick={(e) => {
+          dispatch(decrement(10))
+          setTarget(e.target.name)
+        }}
       />
       <Button
         color="teal"
