@@ -17,6 +17,13 @@ export const fetchEVent=()=>{
         }
     }
 }
+export const listenToEvents=(event)=>{
+    return{
+        type:FETCH_EVENT,
+        payload:event
+    }
+}
+
 export const createEvent=(event)=>{
     return{
         type:CREATE_EVENT,

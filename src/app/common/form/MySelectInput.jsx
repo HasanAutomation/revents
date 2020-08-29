@@ -4,7 +4,6 @@ import { FormField, Select, Label } from 'semantic-ui-react';
 
 const MySelectInput = ({ label, ...props }) => {
   const [field, meta, helpers] = useField(props);
-  console.log(helpers)
   return (
     <FormField error={meta.touched && !!meta.error}>
       <Select

@@ -11,19 +11,16 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { configureStore } from './app/store/configureStore';
 import ScrollToTop from './app/layout/ScrollToTop';
-import { fetchEVent } from './features/events/eventActions';
 
 const rootEle = document.getElementById('root');
 
 const store = configureStore();
-store.dispatch(fetchEVent())
 
-console.log(store.getState())
 function render() {
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
-      <ScrollToTop/>
+        <ScrollToTop />
         <App />
       </BrowserRouter>
     </Provider>,
